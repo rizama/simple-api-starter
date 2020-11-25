@@ -1,4 +1,4 @@
-# Express API Starter
+# Simple Express API Starter
 
 Includes API Server utilities:
 
@@ -43,3 +43,5 @@ npm run test
 ```
 npm run dev
 ```
+
+Core: [w3c](https://github.com/w3cj)
