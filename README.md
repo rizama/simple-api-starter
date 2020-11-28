@@ -44,4 +44,7 @@ npm run test
 npm run dev
 ```
 
-Core: [w3c](https://github.com/w3cj)
+## Note
+If you have a suggestion or a helper function that you use frequently, feel free to add and perform a pull request. thanks.
+
+CORE: [w3cj](https://github.com/w3cj)
