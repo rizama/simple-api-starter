@@ -1,4 +1,4 @@
-# Simple Express API Starter
+# Simple API Starter
 
 Includes API Server utilities:
 
