@@ -1,6 +1,6 @@
 const fs = require('fs');
 const request = require('request');
-const axios = require("axios");
+const axios = require('axios');
 
 exports.sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 
@@ -34,16 +34,16 @@ exports.removeEmptyOrNull = (array) => {
   return result;
 };
 
-exports.requestPost = (url, body) => {
+exports.requestPost = (url, data) => {
   const options = {
     method: 'POST',
-    url: url,
+    url,
     timeout: 30000,
     json: true,
-    body: body,
+    body: data,
     headers: {
       'Content-type': 'application/json',
-      'Accept': '*/*'
+      Accept: '*/*'
     }
   };
 
@@ -75,45 +75,39 @@ exports.requestGet = (url) => {
   });
 };
 
-exports.axiosGet = (url) => {
-  return new Promise(async (resolve, reject) => {
-    const options = {
-      url: url,
-      method: 'GET',
-      timeout: 30000
+exports.axiosGet = async (url) => {
+  const options = {
+    url,
+    method: 'GET',
+    timeout: 30000
+  };
+  try {
+    const response = await axios(options);
+    const result = {
+      status: response.status,
+      data: response.data
     };
-    try {
-      const response = await axios(options)
-      const result = {
-        status: response.status,
-        data: response.data
-      }
-      resolve(result);
-
-    } catch (error) {
-      reject(error);
-    }
-  })
+    return (result);
+  } catch (error) {
+    return (error);
+  }
 };
 
-exports.axiosPost = (url, body) => {
-  return new Promise(async (resolve, reject) => {
-    const options = {
-      url: url,
-      method: 'POST',
-      timeout: 30000,
-      data: body
+exports.axiosPost = async (url, body) => {
+  const options = {
+    url,
+    method: 'POST',
+    timeout: 30000,
+    data: body
+  };
+  try {
+    const response = await axios(options);
+    const result = {
+      status: response.status,
+      data: response.data
     };
-    try {
-      const response = await axios(options)
-      const result = {
-        status: response.status,
-        data: response.data
-      }
-      resolve(result);
-
-    } catch (error) {
-      reject(error);
-    }
-  })
+    return (result);
+  } catch (error) {
+    return (error);
+  }
 };
