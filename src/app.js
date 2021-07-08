@@ -17,9 +17,9 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 app.get('/', (req, res) => {
-  res.json({
-    message: 'Simple API Starter'
-  });
+    res.json({
+        message: 'Simple API Starter',
+    });
 });
 
 app.use('/api/v1', api);
